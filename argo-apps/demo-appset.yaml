@@ -8,24 +8,24 @@ spec:
   - git:
       repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
       files:
-        - path: "cluster/config.json"
+        - path: "cluster/**"
       revision: demo
   template:
     metadata:
       name: 'demo'
       labels:
-        # env: '{{environment.name}}'
-        # name: 'appset-demo-{{environment.name}}'
+        # env: '{{name}}'
+        # env: test
+        name: 'appset-demo-{{name}}'
     spec:
       destination:
-        namespace: '{{environment.name}}-demo'
+        namespace: '{{name}}-demo'
         server: https://kubernetes.default.svc
         # name: 'in-cluster'
       source:
         repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
-        path: .
-        targetRevision: '{{environment.branch}}'
-        path: app/{{environment.name}}
+        targetRevision: '{{branch}}'
+        path: app/{{name}}
       project: default
       syncPolicy:
         automated:
