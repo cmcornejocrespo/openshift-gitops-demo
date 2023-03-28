@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: asoarch-aap-service
+  name: appset-demo
   namespace: openshift-gitops
 spec:
   generators:
@@ -17,9 +17,8 @@ spec:
         env: '{{environment.name}}'
         name: 'appset-demo-{{environment.name}}'
     spec:
-      project: default
       destination:
-        namespace: {{environment.name}}-demo
+        namespace: '{{environment.name}}-demo'
         server: https://kubernetes.default.svc
         # name: 'in-cluster'
       source:
