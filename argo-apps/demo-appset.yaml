@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: asoarch-aap-service
+  namespace: openshift-gitops
+spec:
+  generators:
+  - git:
+      files:
+        - path: clusters/**/cluster.json
+      repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
+      revision: demo
+  template:
+    metadata:
+      name: '{{environment.name}}-demo'
+      labels:
+        env: '{{environment.name}}'
+        name: 'appset-demo'
+    spec:
+      project: default
+      destination:
+        namespace: {{environment.name}}-demo
+        name: 'in-cluster'
+      source:
+        repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
+        path: .
+        targetRevision: '{{environment.branch}}'
+        path: app/{{{{environment.name}}
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

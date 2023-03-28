@@ -1,0 +1,16 @@
+{
+    "environment": [
+      {
+        "name": "pre",
+        "branch": "demo"
+      },
+      {
+        "name": "dev",
+        "branch": "demo"
+      },
+      {
+        "name": "int",
+        "branch": "demo"
+      }
+    ]
+  }
