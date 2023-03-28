@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       files:
-        - path: clusters/**/cluster.json
+        - path: clusters/cluster.json
       repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
       revision: demo
   template:
@@ -15,12 +15,12 @@ spec:
       name: '{{environment.name}}-demo'
       labels:
         env: '{{environment.name}}'
-        name: 'appset-demo'
+        name: 'appset-demo-{{environment.name}}'
     spec:
       project: default
       destination:
         namespace: {{environment.name}}-demo
-        name: 'in-cluster'
+        # name: 'in-cluster'
       source:
         repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
         path: .
