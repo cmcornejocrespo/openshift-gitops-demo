@@ -14,8 +14,8 @@ spec:
     metadata:
       name: 'demo'
       labels:
-        env: '{{environment.name}}'
-        name: 'appset-demo-{{environment.name}}'
+        # env: '{{environment.name}}'
+        # name: 'appset-demo-{{environment.name}}'
     spec:
       destination:
         namespace: '{{environment.name}}-demo'
