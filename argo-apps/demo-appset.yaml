@@ -12,7 +12,7 @@ spec:
       revision: demo
   template:
     metadata:
-      name: 'demo'
+      name: 'demo-{{name}}'
       labels:
         # env: '{{name}}'
         # env: test
