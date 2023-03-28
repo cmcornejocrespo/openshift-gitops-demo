@@ -25,7 +25,7 @@ spec:
         repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
         path: .
         targetRevision: '{{environment.branch}}'
-        path: app/{{{{environment.name}}
+        path: app/{{environment.name}}
       project: default
       syncPolicy:
         automated:
