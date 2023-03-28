@@ -8,7 +8,7 @@ spec:
   - git:
       repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
       files:
-        - path: "cluster/config.json"
+        - path: "cluster/**/config.json"
       revision: demo
   template:
     metadata:
