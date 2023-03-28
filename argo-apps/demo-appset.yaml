@@ -6,13 +6,13 @@ metadata:
 spec:
   generators:
   - git:
-      files:
-        - path: cluster/cluster.json
       repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
+      files:
+        - path: "cluster/config.json"
       revision: demo
   template:
     metadata:
-      name: '{{environment.name}}-demo'
+      name: 'demo'
       labels:
         env: '{{environment.name}}'
         name: 'appset-demo-{{environment.name}}'
