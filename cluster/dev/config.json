@@ -1,9 +1,4 @@
-[{
-  "name": "dev",
-  "branch": "demo"
-},
 {
-  "name": "int",
-  "branch": "demo"
+    "environment":"dev",
+    "branch":"demo"
 }
-]

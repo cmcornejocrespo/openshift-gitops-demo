@@ -12,20 +12,19 @@ spec:
       revision: demo
   template:
     metadata:
-      name: 'demo-{{name}}'
+      name: 'demo-{{environment}}'
       labels:
-        # env: '{{name}}'
-        # env: test
-        name: 'appset-demo-{{name}}'
+        env: '{{environment}}'
+        name: 'appset-demo-{{environment}}'
     spec:
       destination:
-        namespace: '{{name}}-demo'
+        namespace: '{{environment}}-demo'
         server: https://kubernetes.default.svc
         # name: 'in-cluster'
       source:
         repoURL: 'https://github.com/cmcornejocrespo/openshift-gitops-demo.git'
         targetRevision: '{{branch}}'
-        path: app/{{name}}
+        path: app/{{environment}}
       project: default
       syncPolicy:
         automated:
